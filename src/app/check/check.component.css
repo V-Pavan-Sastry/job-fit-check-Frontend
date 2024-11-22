@@ -1,0 +1,58 @@
+/* Ensure the container and cards take up full height */
+.card-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    height: auto; /* Adjust height for responsiveness */
+    gap: 0.1rem; /* Space between cards */
+}
+
+.card {
+    flex: 1 1 300px; /* Allow cards to grow and shrink with a minimum width */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card p {
+    margin-top: 1rem;
+}
+
+.card p-icon {
+    font-size: 2rem;
+    color: var(--primary-color, #007ad9); /* Default icon color */
+}
+
+.insights {
+    min-width: 300px; /* Adjusted for smaller screens */
+    max-width: 100%; /* Full width for responsiveness */
+    height: fit-content;
+    background-color: aliceblue;
+    border-radius: 2%;
+    margin-top: 5px;
+}
+
+.jd {
+    min-width: 300px; /* Adjusted for smaller screens */
+    max-width: 100%; /* Full width for responsiveness */
+    max-height: 375px;
+    min-height: 200px;
+    width: 100%; /* Full width for responsiveness */
+    height: 100vh; /* Allow height to adjust based on content */
+    background-color: aliceblue;
+    border-radius: 2%;
+    margin-top: 5px;
+    padding: 10px;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column-reverse; /* Stack cards vertically on smaller screens */
+    }
+
+    .jd {
+        height:100vh; /* Allow height to adjust based on content */
+    }
+}

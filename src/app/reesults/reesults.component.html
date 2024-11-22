@@ -1,0 +1,74 @@
+<div class="card flex justify-content-center">
+    <p-accordion [activeIndex]="0">
+        <p-accordionTab header="">
+            <ng-template pTemplate="header">
+                <i class="pi pi-address-book"> </i>&nbsp;&nbsp; Personal Info
+            </ng-template>
+            <p-meterGroup [value]="resumeScore" />
+            <div class="card" style="margin-top:20px; display: inline-flex; align-content: center; flex-wrap: wrap;">
+                <div style="margin:5px; width: fit-content;"><p-tag icon="pi pi-user" severity="info" [value]="this.data.analysis.res.NAME" /></div>
+                <div style="margin:5px; width: fit-content;"><p-tag icon="pi pi-at" severity="info" [value]="this.data.analysis.res.EMAIL" /></div>
+                <div style="margin:5px; width: fit-content;"><p-tag icon="pi pi-phone" severity="info" [value]="this.data.analysis.res.PHNO" /></div>
+                <div style="margin:5px; width: fit-content;"><p-tag icon="pi pi-calendar-clock" severity="info" [value]="this.data.analysis.res.TOTAL_EXPERINCE+' years'" /></div>
+            </div>
+        </p-accordionTab>
+        <p-accordionTab header="">
+            <ng-template pTemplate="header">
+                <i class="pi pi-list-check"></i>&nbsp;&nbsp;  REQUIREMENT MATCH
+            </ng-template>
+            <p-meterGroup [value]="requirementScore" />
+            <p-scrollPanel [style]="{ height: '150px' }" styleClass="custombar2">
+                <div class="card flex justify-content-center gap-2" style="flex-direction: column; margin-top:20px;">
+                    <div *ngFor="let req of trueRequirementsList" style="margin:5px;">
+                        <p-tag severity="success" [value]="req"></p-tag>
+                    </div>
+                    <div *ngFor="let req of falseRequirementsList" style="margin:5px;">
+                        <p-tag severity="warning" [value]="req"></p-tag>
+                    </div>
+                </div>
+            </p-scrollPanel>
+        </p-accordionTab>
+        <p-accordionTab header="">
+            <ng-template pTemplate="header">
+                <i class="pi pi-search-plus"></i> &nbsp;&nbsp; Additional Skills
+            </ng-template>
+            <p-meterGroup [value]="addrequirementScore" /><br>
+            <p-scrollPanel [style]="{ height: '150px' }" styleClass="custombar1">
+                <div class="card flex justify-content-center gap-2" style="flex-direction: column; margin-top:20px;">
+                    <div *ngFor="let req of trueAddSkillList" style="margin:5px;">
+                        <p-tag severity="success" [value]="req"></p-tag>
+                    </div>
+                    <div *ngFor="let req of falseAddSkillList" style="margin:5px;">
+                        <p-tag severity="warning" [value]="req"></p-tag>
+                    </div>
+                </div>
+            </p-scrollPanel>
+        </p-accordionTab>
+        <p-accordionTab header="">
+            <ng-template pTemplate="header">
+                <i class="pi pi-question-circle"></i> &nbsp;&nbsp; Interview Questions
+            </ng-template>
+            <p-scrollPanel [style]="{ height: '150px' }" styleClass="custombar1">
+                <div class="card flex justify-content-center gap-2" style="flex-direction: column; margin-top:20px;">
+                    <div *ngFor="let req of data.analysis.res.QUESTIONS" style="margin:5px;">
+                        <p-tag severity="info" [value]="req"></p-tag>
+                    </div>
+                </div>
+            </p-scrollPanel>
+        </p-accordionTab>
+        <p-accordionTab header="">
+            <ng-template pTemplate="header">
+                <i class="pi pi-link"></i> &nbsp;&nbsp; Links Extracted
+            </ng-template>
+            <p-scrollPanel [style]="{ height: '150px' }" styleClass="custombar1">
+                <div class="card flex justify-content-center gap-2" style="flex-direction: column; margin-top:20px;">
+                    <div *ngFor="let req of data.links" style="margin:5px;">
+                        <p-tag severity="info" >
+                            <a [href]="req" target="_blank" rel="noopener noreferrer" style="color: aliceblue;">{{ req }}</a>
+                        </p-tag>
+                    </div>
+                </div>
+            </p-scrollPanel>
+        </p-accordionTab>
+    </p-accordion>
+</div>

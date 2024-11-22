@@ -1,0 +1,50 @@
+<div class="card-container">
+    <p-card class="card" header="Upload Details">
+        <p-floatLabel>
+            <h3 style="margin-bottom: 1%; margin-top: 0%;">Job Description <i class="pi pi-clipboard"></i></h3>
+            <textarea class="jd" 
+                id="float-input" 
+                [(ngModel)]="textValue" 
+                placeholder="Paste the Description of the Job you would like to apply"
+                [disabled]="isLoading"
+                pInputTextArea>
+            </textarea>
+        </p-floatLabel>
+        <h3 style="margin-bottom: 0%; margin-top: 2%;">Add Gemini API-key</h3>
+        <div style="display: inline-flex; margin:10px; width: 100%; flex-wrap: wrap;">
+            <div style="margin-right: 10px; width: fit-content;"><p-password [(ngModel)]="apiKey" [feedback]="false" /></div>
+            <div style="margin-left: 10px; width: fit-content; margin-top: auto; margin-bottom: auto;">
+                <p-tag severity="info">
+                    <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: aliceblue;">
+                Get API-Key
+            </a>
+        </p-tag>
+    </div>
+        </div>
+        <div class="card flex justify-content-center">
+            <input  
+                type="file" 
+                id="fileInput" 
+                style="display: none;" 
+                (change)="onFileSelect($event)" 
+                accept=".pdf" 
+            />
+            <p-button 
+                [disabled]="isLoading"
+                [label]="buttonLabel" 
+                [icon]="buttonIcon" 
+                (click)="onButtonClick()">
+            </p-button>
+        </div>
+    </p-card>
+    <p-card class="card" *ngIf="isLoading">
+        <i class="pi pi-spin pi-spinner" style="font-size: 4rem; margin-left: 30%;"></i>
+        <br>
+        <h3>Working our Magic<i class="pi pi-sparkles"></i></h3>
+    </p-card>
+    <p-card class="card" header="Insights" *ngIf="isVisible">
+        <div class="insights">
+            <app-reesults [data]="resdata"></app-reesults>
+        </div>
+    </p-card>
+</div>

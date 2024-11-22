@@ -1,0 +1,35 @@
+::ng-deep .p-panel-header{
+ background-color: #FFFFFF;
+ border-bottom: #FFFFFF;
+ padding-bottom: 0%;
+ margin-bottom: 0%;
+}
+
+/* Responsive styles */
+.card {
+    width: 100%; /* Full width for cards */
+    margin: 0 auto; /* Center cards */
+}
+
+.p-scrollPanel {
+    width: 100%; /* Full width for scroll panels */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+
+    .card.flex {
+        flex-direction: column; /* Ensure flex items stack */
+    }
+
+    .gap-2 {
+        gap: 1rem; /* Adjust gap for smaller screens */
+    }
+
+    .p-accordion {
+        font-size: 0.9rem; /* Slightly reduce font size for smaller screens */
+    }
+}
